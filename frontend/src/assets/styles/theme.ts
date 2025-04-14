@@ -4,6 +4,10 @@ interface ThemeColors {
     background: string;
     text: string;
     cardBackground: string;
+    success: string;
+    error: string;
+    warning: string;
+    info: string;
 }
 
 export interface AppTheme {
@@ -17,6 +21,10 @@ export const lightTheme: AppTheme = {
         background: '#f8f9fa',
         text: '#333',
         cardBackground: '#fff',
+        success: '#28a745',
+        error: '#dc3545',
+        warning: '#ffc107',
+        info: '#17a2b8',
     },
 };
 
@@ -27,5 +35,9 @@ export const darkTheme: AppTheme = {
       background: '#232222FF',
       text: '#f8f9fa',
       cardBackground: '#1e1e1e',
+      success: '#218838',
+      error: '#c82333',
+      warning: '#e0a800',
+      info: '#138496',
     },
 };
