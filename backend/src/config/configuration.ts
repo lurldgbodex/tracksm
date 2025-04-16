@@ -1,6 +1,10 @@
 import { registerAs } from "@nestjs/config";
 
+
+console.log("DB_PASSWORD: ", process.env.DB_PASSWORD);
+
 export default registerAs('app', () => ({
+    
     port: parseInt(process.env.PORT ?? '3000', 10),
     database: {
         host: process.env.DB_HOST,
@@ -11,11 +15,11 @@ export default registerAs('app', () => ({
     },
     jwt: {
         access: {
-            secret: process.env.JWT_SECRET || 'access-secret',
+            secret: process.env.JWT_SECRET,
             expiresIn: process.env.JWT_EXPIRES_IN || '1d',   
         },
         refresh: {
-            secret: process.env.JWT_REFRESH_SECRET || 'refresh-secret',
+            secret: process.env.JWT_REFRESH_SECRET,
             expiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '7d',
         },
     },
