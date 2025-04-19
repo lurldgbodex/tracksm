@@ -1,8 +1,5 @@
 import { registerAs } from "@nestjs/config";
 
-
-console.log("DB_PASSWORD: ", process.env.DB_PASSWORD);
-
 export default registerAs('app', () => ({
     
     port: parseInt(process.env.PORT ?? '3000', 10),
