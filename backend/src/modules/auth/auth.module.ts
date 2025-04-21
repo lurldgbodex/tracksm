@@ -7,6 +7,7 @@ import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
 import { UsersModule } from '../users/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { AccessTokenJwtProvider, RefreshTokenJwtProvider } from './utils/jwt.providers';
+import { AuthGuard } from './guard/auth.guard';
 
 @Module({
   imports: [ UsersModule, PassportModule, ConfigModule ],
@@ -15,8 +16,11 @@ import { AccessTokenJwtProvider, RefreshTokenJwtProvider } from './utils/jwt.pro
     JwtStrategy, 
     JwtRefreshStrategy, 
     AccessTokenJwtProvider, 
-    RefreshTokenJwtProvider
+    RefreshTokenJwtProvider,
+    AuthGuard,
   ],
+  exports: ['JWT_ACCESS_SERVICE', 'JWT_REFRESH_SERVICE', AuthGuard],
+
   controllers: [AuthController]
 })
 export class AuthModule {}
